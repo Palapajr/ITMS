@@ -22,10 +22,11 @@
                 <a class="nav-link" href="<?php echo base_url(); ?>anggota"><i class="far fa-square"></i> <span>Master Anggota</span></a>
             </li>
 
-            <li class="">
-                <a class="nav-link" href="<?php echo base_url(); ?>anggota"><i class="far fa-square"></i> <span>Master Anggota</span></a>
+            <li class="<?php if ($menu == "unit") {
+                            echo "active";
+                        } ?>">
+                <a class="nav-link" href="<?php echo base_url(); ?>unit"><i class="far fa-square"></i> <span>Master Unit</span></a>
             </li>
-
 
         </ul>
 

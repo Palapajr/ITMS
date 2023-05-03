@@ -369,10 +369,17 @@
                         $('[name="id_anggota"]').val(response.id_anggota);
                         $('[name="npk"]').val(response.npk);
                         $('[name="nama"]').val(response.nama);
-                        $('select[name="jabatan"]').find('[value="' + response.jabatan + '"]').attr('selected', 'selected');
-                        $('select[name="unit"]').find('[value="' + response.unit + '"]').attr('selected', 'selected');
-                        $('select[name="pendidikan"]').find('[value="' + response.pendidikan + '"]').attr('selected', 'selected');
-                        $('input:radio[name="gender"]').filter('[value="' + response.gender + '"]').attr('checked', true);
+
+                        $('select[name="jabatan"]').append('<option value="' + value.response + '">' + value.name + '</option>');
+                        $('select[name="unit"]').append('<option value="' + value.response + '">' + value.name + '</option>');
+                        $('select[name="pendidikan"]').append('<option value="' + value.response + '">' + value.name + '</option>');
+
+                        // $('select[name="jabatan"]').find('[value="' + response.jabatan + '"]').attr('selected', 'selected');
+                        // $('select[name="unit"]').find('[value="' + response.unit + '"]').attr('selected', 'selected');
+                        // $('select[name="pendidikan"]').find('[value="' + response.pendidikan + '"]').attr('selected', 'selected');
+                        $('input:radio[name=gender][value=' + response.gender + ']')[0].checked = true;
+                        // $('input:radio[name="gender"]').filter('[value="' + response.gender + '"]').attr('checked', true);
+
                         $('[name="nope"]').val(response.nope);
                         $('select[name="agama"]').find('[value="' + response.agama + '"]').attr('selected', 'selected');
                         $('[name="hobi"]').val(response.hobi);

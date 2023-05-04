@@ -123,7 +123,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Jabatan SK</label>
-                                        <select class="form-control" name="jabatan">
+                                        <select class="form-control jabatan" name="jabatan">
                                             <option value="">Pilih</option>
                                             <option value="Teknisi">Teknisi</option>
                                             <option value="IT">IT</option>
@@ -132,7 +132,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Unit</label>
-                                        <select class="form-control" name="unit">
+                                        <select class="form-control unit" name="unit">
                                             <option value="">Pilih</option>
                                             <option value="Sarpras">Sarpras</option>
                                             <option value="IT">IT</option>
@@ -141,7 +141,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Pendidikan Tertinggi</label>
-                                        <select class="form-control" name="pendidikan">
+                                        <select class="form-control pendidikan" name="pendidikan">
                                             <option value="">Pilih</option>
                                             <option value="Bawah_sma">Di Bawah SMA</option>
                                             <option value="SMA">SMA</option>
@@ -173,7 +173,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Agama</label>
-                                        <select class="form-control" name="agama">
+                                        <select class="form-control agama" name="agama">
                                             <option value="">Pilih</option>
                                             <option value="Islam">Islam</option>
                                             <option value="Kristen">Kristen</option>
@@ -282,8 +282,8 @@
                 text: "Anda Akan menghapus Data Anggota Dengan Nama " + nama + "  ?",
                 icon: 'warning',
                 showCancelButton: true,
-                confirmButtonColor: '#63ED7A',
-                cancelButtonColor: '#d33',
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#63ED7A',
                 confirmButtonText: 'Ya, Hapus !'
             }).then((result) => {
                 if (result.isConfirmed) {
@@ -366,26 +366,27 @@
                         modalTitle.text('Modal Ubah Data Anggota');
                         btnSave.text('Ubah Data');
                         btnSave.attr('disabled', false);
+
                         $('[name="id_anggota"]').val(response.id_anggota);
                         $('[name="npk"]').val(response.npk);
                         $('[name="nama"]').val(response.nama);
 
-                        $('select[name="jabatan"]').append('<option value="' + value.response + '">' + value.name + '</option>');
-                        $('select[name="unit"]').append('<option value="' + value.response + '">' + value.name + '</option>');
-                        $('select[name="pendidikan"]').append('<option value="' + value.response + '">' + value.name + '</option>');
+                        $('.jabatan').val(response.jabatan);
+                        $('.unit').val(response.unit);
+                        $('.pendidikan').val(response.pendidikan);
 
-                        // $('select[name="jabatan"]').find('[value="' + response.jabatan + '"]').attr('selected', 'selected');
-                        // $('select[name="unit"]').find('[value="' + response.unit + '"]').attr('selected', 'selected');
-                        // $('select[name="pendidikan"]').find('[value="' + response.pendidikan + '"]').attr('selected', 'selected');
-                        $('input:radio[name=gender][value=' + response.gender + ']')[0].checked = true;
-                        // $('input:radio[name="gender"]').filter('[value="' + response.gender + '"]').attr('checked', true);
+                        //$('input:radio[name=gender][value=' + response.gender + ']')[0].checked = true;
+                        $('input:radio[name="gender"]').filter('[value="' + response.gender + '"]').attr('checked', true);
 
                         $('[name="nope"]').val(response.nope);
-                        $('select[name="agama"]').find('[value="' + response.agama + '"]').attr('selected', 'selected');
+                        $('.agama').val(response.agama);
+
+                        //$('select[name="agama"]').find('[value="' + response.agama + '"]').attr('selected', 'selected');
                         $('[name="hobi"]').val(response.hobi);
                         $('[name="tmt_kerja"]').val(response.tmt_kerja);
                         $('[name="alamat"]').val(response.alamat);
                         showmodal.modal('show');
+
                     } else {
                         deleteQuestion(response.id_anggota, response.nama);
                     }

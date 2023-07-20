@@ -41,7 +41,7 @@ class Anggota extends CI_Controller
             $row[] = '
 
             <a href="#" class="btn btn-icon icon-left btn-primary" onclick="byid(' . "'" . $field->id_anggota . "','edit'" . ')"><i class="far fa-edit"></i></a>
-            <a href="#" class="btn btn-icon icon-left btn-info"><i class="fas fa-search"></i></a>
+            
             <a href="#" class="btn btn-icon icon-left btn-danger" onclick="byid(' . "'" . $field->id_anggota . "','delete'" . ')"><i class="fas fa-trash"></i></a>
 
 

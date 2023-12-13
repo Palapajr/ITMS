@@ -15,16 +15,8 @@ class Login_model extends CI_Model
         return $result;
     }
 
-    public function getall()
+    public function countAll()
     {
-        $query = $this->db->get('user');
-		return $query->num_rows();
-
-        // $query = $this->db->get('testing');
-        // if ($query->num_rows() > 0) {
-        //     return $query->num_rows();
-        // } else {
-        //     return 0;
-        // }
+        return $this->db->count_all('user');
     }
 }

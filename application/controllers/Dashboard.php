@@ -6,22 +6,23 @@ class Dashboard extends CI_Controller
     function __construct()
     {
         parent::__construct();
-        $this->load->model('Login_model');
         // cek login user
         if ($this->session->userdata('logged') != TRUE) {
             $url = base_url('auth');
             redirect($url);
         };
+        $this->load->model('Login_model');
     }
 
     public function index()
     {
-        $sum['totaluser'] = $this->login_model->getall();
+        $data['total_rows'] = $this->Login_model->countAll();
         $data = array(
             'title' => "Dashboad Meta",
             'menu' => 'dashboard'
+
         );
 
-        $this->load->view('dashboard', $sum, $data);
+        $this->load->view('dashboard', $data);
     }
 }

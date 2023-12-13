@@ -60,7 +60,7 @@
                                         <h4>Total Admin</h4>
                                     </div>
                                     <div class="card-body">
-                                        <?php echo $totaluser; ?>
+                                        <?php echo $total_rows; ?>
                                     </div>
                                 </div>
                             </div>
